@@ -1,3 +1,14 @@
+plugins {
+    id("net.nemerosa.versioning") version "4.0.1"
+}
+
+versioning {
+    releaseMode = "snapshot"
+    displayMode = "snapshot"
+    dirty = { it }
+    releaseBuild = false
+}
+
 subprojects {
     group = "pe.edu.nova.java.starters"
     version = findProperty("version") as String

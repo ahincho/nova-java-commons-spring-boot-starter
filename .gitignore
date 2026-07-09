@@ -44,3 +44,6 @@ bin/
 *.class
 *.log
 .jqwik-database
+
+### Node ###
+node_modules/
