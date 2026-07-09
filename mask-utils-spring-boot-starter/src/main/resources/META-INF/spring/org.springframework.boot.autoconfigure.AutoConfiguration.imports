@@ -1,0 +1,5 @@
+pe.edu.galaxy.training.java.starters.mask.autoconfigure.MaskAutoConfiguration
+pe.edu.galaxy.training.java.starters.mask.autoconfigure.MaskJacksonAutoConfiguration
+pe.edu.galaxy.training.java.starters.mask.autoconfigure.MaskWebAutoConfiguration
+pe.edu.galaxy.training.java.starters.mask.autoconfigure.MaskLogAutoConfiguration
+pe.edu.galaxy.training.java.starters.mask.autoconfigure.MaskActuatorAutoConfiguration
