@@ -1,6 +1,6 @@
 subprojects {
-    group = "pe.edu.galaxy.training.java.starters"
-    version = "1.0.0"
+    group = "pe.edu.nova.java.starters"
+    version = findProperty("version") as String
     
     apply(plugin = "java-library")
 

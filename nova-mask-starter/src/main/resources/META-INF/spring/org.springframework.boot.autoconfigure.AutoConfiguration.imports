@@ -1,0 +1,5 @@
+pe.edu.nova.java.starters.mask.autoconfigure.MaskAutoConfiguration
+pe.edu.nova.java.starters.mask.autoconfigure.MaskJacksonAutoConfiguration
+pe.edu.nova.java.starters.mask.autoconfigure.MaskWebAutoConfiguration
+pe.edu.nova.java.starters.mask.autoconfigure.MaskLogAutoConfiguration
+pe.edu.nova.java.starters.mask.autoconfigure.MaskActuatorAutoConfiguration
