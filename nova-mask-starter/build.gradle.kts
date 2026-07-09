@@ -1,6 +1,7 @@
 plugins {
     id("java-library")
     id("maven-publish")
+    id("signing")
 }
 
 val springBootVersion = "4.0.5"
@@ -33,5 +34,16 @@ publishing {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
         }
+    }
+}
+
+signing {
+    val gpgKeyId: String? = System.getenv("GPG_SIGNING_KEY_ID")
+    val gpgKey: String? = System.getenv("GPG_SIGNING_KEY")
+    val gpgPassword: String? = System.getenv("GPG_SIGNING_PASSWORD")
+
+    if (gpgKeyId != null && gpgKey != null) {
+        useInMemoryPgpKeys(gpgKeyId, gpgKey, gpgPassword ?: "")
+        sign(publishing.publications)
     }
 }
