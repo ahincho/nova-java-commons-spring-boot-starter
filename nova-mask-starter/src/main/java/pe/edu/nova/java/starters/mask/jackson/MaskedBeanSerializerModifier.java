@@ -8,7 +8,6 @@ import pe.edu.nova.java.starters.mask.config.MaskProperties;
 import pe.edu.nova.java.libs.mask.utils.CountryCode;
 import pe.edu.nova.java.libs.mask.utils.MaskType;
 import pe.edu.nova.java.libs.mask.utils.annotation.Masked;
-import pe.edu.nova.java.libs.mask.utils.annotation.MaskedClass;
 import pe.edu.nova.java.libs.mask.utils.annotation.MaskConfigAnnotation;
 import pe.edu.nova.java.libs.mask.utils.annotation.SkipMasking;
 import pe.edu.nova.java.libs.mask.utils.strategy.StrategyRegistry;

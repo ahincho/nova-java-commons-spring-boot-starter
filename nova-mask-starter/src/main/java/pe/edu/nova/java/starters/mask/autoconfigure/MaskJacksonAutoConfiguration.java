@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Bean;
 import pe.edu.nova.java.starters.mask.config.MaskProperties;
 import pe.edu.nova.java.starters.mask.jackson.MaskedBeanSerializerModifier;
 import pe.edu.nova.java.libs.mask.utils.strategy.StrategyRegistry;
-import tools.jackson.databind.cfg.MapperBuilder;
 import tools.jackson.databind.module.SimpleModule;
 
 /**
