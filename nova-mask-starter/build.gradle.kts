@@ -8,7 +8,7 @@ val springBootVersion = "4.0.5"
 
 dependencies {
     // mask-utils library (from Maven Local)
-    api("pe.edu.nova.java.libs:nova-mask-utils:0.1.0-SNAPSHOT")
+    api("pe.edu.nova.java.libs:nova-mask-utils:1.0.0")
 
     // Spring Boot auto-configuration
     compileOnly("org.springframework.boot:spring-boot-autoconfigure:$springBootVersion")

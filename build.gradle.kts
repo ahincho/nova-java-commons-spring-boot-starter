@@ -26,6 +26,26 @@ subprojects {
     repositories {
         mavenLocal()
         mavenCentral()
+        // Internal Nova Platform dependencies (each lives in its own repo/package).
+        // GITHUB_TOKEN cannot read packages from another repo, so this needs a PAT
+        // (falls back to GITHUB_TOKEN for local/manual builds where only that is set).
+        val readToken = System.getenv("NOVA_PACKAGES_READ_TOKEN") ?: System.getenv("GITHUB_TOKEN")
+        maven {
+            name = "NovaMaskUtils"
+            url = uri("https://maven.pkg.github.com/ahincho/nova-java-mask-utils")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = readToken
+            }
+        }
+        maven {
+            name = "NovaApiStandard"
+            url = uri("https://maven.pkg.github.com/ahincho/nova-java-api-standard")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = readToken
+            }
+        }
     }
 
     tasks.named<Test>("test") {
