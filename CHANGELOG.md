@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/ahincho/nova-java-commons-spring-boot-starter/compare/v1.0.0...v1.0.1) (2026-07-13)
+
+
+### Bug Fixes
+
+* **ci:** add component + skip-snapshot + manifest-file (mask-utils pattern) ([eb9968e](https://github.com/ahincho/nova-java-commons-spring-boot-starter/commit/eb9968e7a6d543964c0551c9c08dd06034f97227))
+* **ci:** add last-release-sha, include-component-in-tag: false, release-type: java to top-level config; pass manifest-file in wrapper ([bae97e6](https://github.com/ahincho/nova-java-commons-spring-boot-starter/commit/bae97e6282ccf3c41997d5bb8bd96d3c24e00474))
+
 ## 1.0.0 (2026-07-10)
 
 
