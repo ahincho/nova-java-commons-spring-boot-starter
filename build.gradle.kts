@@ -52,17 +52,17 @@ subprojects {
         }
     }
 
-    // Force patched versions of any transitive deps that carry known CVEs (CVSS >= 7).
-    // Versions verified against Maven Central 2026-07-13. Applied globally so they
-    // cover any classpath (compile, runtime, even buildscript transitives) so the
-    // OWASP gate reflects the real, patched state.
-    //
-    //  - Apache HttpComponents Core 4.4.16+ for CVE-2026-54428, CVE-2026-54399
-    //  - Apache HttpComponents Core5 5.4.2+ for CVE-2026-54428, CVE-2026-54399
-    //  - Apache Commons BeanUtils 1.11.0+ for CVE-2025-48734
-    //  - plexus-utils 3.5.1+ for CVE-2025-67030 (commit 6d780b3 per NVD)
-    configurations.all {
-        resolutionStrategy.eachDependency {
+// Force patched versions of any transitive deps that carry known CVEs (CVSS >= 7).
+// Versions verified against Maven Central 2026-07-13. Applied globally so they
+// cover any classpath (compile, runtime, even buildscript transitives) so the
+// OWASP gate reflects the real, patched state.
+//
+//  - Apache HttpComponents Core 4.4.16+ for CVE-2026-54428, CVE-2026-54399
+//  - Apache HttpComponents Core5 5.4.2+ for CVE-2026-54428, CVE-2026-54399
+//  - Apache Commons BeanUtils 1.11.0+ for CVE-2025-48734
+//  - plexus-utils 3.5.1+ for CVE-2025-67030 (commit 6d780b3 per NVD)
+configurations.all {
+    resolutionStrategy.eachDependency {
             if (requested.group == "org.apache.httpcomponents" && requested.name.startsWith("httpcore")) {
                 useVersion("4.4.16")
                 because("CVE-2026-54428, CVE-2026-54399 require httpcore 4.4.16+")
@@ -99,6 +99,29 @@ subprojects {
         // wildcards (org.junit.jupiter.api.Assertions.*, net.jqwik.api.*), which
         // is an accepted convention that would otherwise trip AvoidStarImport.
         sourceSets = listOf(the<SourceSetContainer>().getByName("main"))
+    }
+
+    // Force Tomcat 11.0.24 strictly - fixes 3 CVEs in Spring Boot 4.1.0's
+    // transitive tomcat-embed-* deps (CVE-2026-53434, CVE-2026-55276,
+    // CVE-2026-53404 - all in 11.0.22, fixed in 11.0.23+). Constraints
+    // + strictly() used instead of resolutionStrategy.force() to avoid
+    // a Gradle 9 config-cache serialization bug. Applied at subprojects
+    // level so it covers both nova-mask-starter and nova-api-standard-starter.
+    dependencies {
+        constraints {
+            "implementation"("org.apache.tomcat.embed:tomcat-embed-core") {
+                version { strictly("11.0.24") }
+                because("CVE-2026-53434, CVE-2026-55276, CVE-2026-53404 require 11.0.23+")
+            }
+            "implementation"("org.apache.tomcat.embed:tomcat-embed-websocket") {
+                version { strictly("11.0.24") }
+                because("Same CVEs in 11.0.22")
+            }
+            "implementation"("org.apache.tomcat.embed:tomcat-embed-el") {
+                version { strictly("11.0.24") }
+                because("Same CVEs in 11.0.22")
+            }
+        }
     }
 
     configure<DependencyCheckExtension> {
