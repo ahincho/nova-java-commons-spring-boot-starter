@@ -4,7 +4,7 @@ plugins {
     id("signing")
 }
 
-val springBootVersion = "4.0.5"
+val springBootVersion = "4.1.0"
 
 dependencies {
     // api-standard library (from Maven Local)
