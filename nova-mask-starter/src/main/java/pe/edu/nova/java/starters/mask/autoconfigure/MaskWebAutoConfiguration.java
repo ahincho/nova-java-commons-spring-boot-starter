@@ -20,7 +20,7 @@ import pe.edu.nova.java.starters.mask.web.MaskResponseBodyAdvice;
  */
 @AutoConfiguration(after = MaskJacksonAutoConfiguration.class)
 @ConditionalOnProperty(
-        prefix = "galaxy-training.mask.response",
+        prefix = "nova.mask.response",
         name = "enabled",
         havingValue = "true",
         matchIfMissing = true

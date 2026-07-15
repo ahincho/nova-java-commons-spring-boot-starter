@@ -19,7 +19,7 @@ import pe.edu.nova.java.starters.apistandard.web.GlobalExceptionHandler;
  */
 @AutoConfiguration
 @ConditionalOnProperty(
-        prefix = "galaxy-training.api-standard",
+        prefix = "nova.api-standard",
         name = "enabled",
         havingValue = "true",
         matchIfMissing = true

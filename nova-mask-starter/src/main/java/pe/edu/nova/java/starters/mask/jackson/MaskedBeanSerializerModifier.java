@@ -29,7 +29,7 @@ import tools.jackson.databind.ser.ValueSerializerModifier;
  * </ol>
  * <p>
  * Este comportamiento por defecto se puede desactivar con la propiedad
- * {@code galaxy-training.mask.enabled=false}.
+ * {@code nova.mask.enabled=false}.
  * </p>
  *
  * @author Galaxy Training

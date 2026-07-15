@@ -29,7 +29,7 @@ import pe.edu.nova.java.libs.mask.utils.strategy.StrategyRegistry;
 @AutoConfiguration
 @EnableConfigurationProperties(MaskProperties.class)
 @ConditionalOnProperty(
-        prefix = "galaxy-training.mask",
+        prefix = "nova.mask",
         name = "enabled",
         havingValue = "true",
         matchIfMissing = true

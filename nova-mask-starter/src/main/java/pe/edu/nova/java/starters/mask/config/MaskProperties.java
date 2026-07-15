@@ -7,13 +7,13 @@ import pe.edu.nova.java.libs.mask.utils.CountryCode;
 /**
  * Propiedades de configuración del starter mask-utils.
  * <p>
- * Se vinculan al prefijo {@code galaxy-training.mask} en
+ * Se vinculan al prefijo {@code nova.mask} en
  * {@code application.properties} o {@code application.yml}.
  * </p>
  *
  * @author Galaxy Training
  */
-@ConfigurationProperties(prefix = "galaxy-training.mask")
+@ConfigurationProperties(prefix = "nova.mask")
 public class MaskProperties {
 
     /** Habilita o deshabilita todo el starter. */

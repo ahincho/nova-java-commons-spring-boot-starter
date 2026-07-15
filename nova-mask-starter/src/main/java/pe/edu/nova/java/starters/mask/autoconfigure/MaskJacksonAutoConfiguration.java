@@ -20,7 +20,7 @@ import tools.jackson.databind.module.SimpleModule;
  */
 @AutoConfiguration(after = MaskAutoConfiguration.class)
 @ConditionalOnProperty(
-        prefix = "galaxy-training.mask",
+        prefix = "nova.mask",
         name = "enabled",
         havingValue = "true",
         matchIfMissing = true
